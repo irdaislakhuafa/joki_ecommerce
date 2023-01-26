@@ -10,14 +10,18 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    return sc.SplashScreen(
-      seconds: 5,
-      backgroundColor: Theme.of(context).primaryColor,
-      photoSize: 120.0,
-      // TODO: round image or remove background
-      image: Image.asset("assets/images/splash_screen_logo.png"),
-      loaderColor: Colors.white,
-      navigateAfterSeconds: Login(),
+    return GestureDetector(
+      child: sc.SplashScreen(
+        seconds: 5,
+        backgroundColor: Theme.of(context).primaryColor,
+        photoSize: 120.0,
+        image: Image.asset("assets/images/splash_screen_logo.png"),
+        loaderColor: Colors.white,
+      ),
+      onTap: () {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Login()));
+      },
     );
   }
 }
