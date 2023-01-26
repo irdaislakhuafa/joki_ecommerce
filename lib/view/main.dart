@@ -8,6 +8,7 @@ void main(List<String> args) {
     routes: {},
     theme: ThemeData(
       primaryColor: const Color.fromARGB(255, 220, 92, 91),
+      primaryColorLight: const Color.fromARGB(255, 222, 186, 186),
     ),
   ));
 }

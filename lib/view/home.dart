@@ -1,27 +1,46 @@
 import 'package:ecommerce/view/components/search_bar.dart';
+import 'package:ecommerce/view/product_details.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
   // card products
   static var imageNames = [
     {
+      "title": "Product A",
       "image": "assets/images/product_1.png",
       "desc": "Lorem Ipsum is simply dummy text",
+      "long_desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "amount": "Rp 10000",
     },
     {
+      "title": "Product B",
       "image": "assets/images/product_2.png",
       "desc": "Lorem Ipsum is simply dummy text",
+      "long_desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "amount": "Rp 10000",
     },
     {
+      "title": "Product C",
       "image": "assets/images/product_3.png",
       "desc": "Lorem Ipsum is simply dummy text",
+      "long_desc":
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "amount": "Rp 10000",
     },
   ];
+
+  @override
+  State<StatefulWidget> createState() {
+    var state = _HomeState();
+    state.imageNames = imageNames;
+    return state;
+  }
+}
+
+class _HomeState extends State<Home> {
+  List<Map<String, String>> imageNames = [];
 
   @override
   Widget build(BuildContext context) {
@@ -108,18 +127,42 @@ class _HomeState extends State<Home> {
                     children: [
                       Image.asset(imageNames[index]["image"]!),
                       Container(
+                        margin: EdgeInsets.only(top: 10),
+                        child: Text(
+                          imageNames[index]["title"]!,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Container(
                         margin: EdgeInsets.only(bottom: 10),
-                        padding: EdgeInsets.only(top: 10),
                         child: Text(imageNames[index]["desc"]!),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  Theme.of(context).primaryColor),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      ProductDetails(productID: index),
+                                ),
+                              );
+                            },
                             child: Icon(Icons.list),
                           ),
                           ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  Theme.of(context).primaryColor),
+                            ),
                             onPressed: () {},
                             child: Icon(Icons.add_shopping_cart),
                           )
