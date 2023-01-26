@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart' as sc;
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -8,6 +9,12 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    throw UnimplementedError();
+    return sc.SplashScreen(
+      seconds: 5,
+      backgroundColor: Theme.of(context).primaryColor,
+      photoSize: 200.0,
+      // TODO: round image or remove background
+      image: Image.asset("assets/images/splash_screen_logo.jpeg"),
+    );
   }
 }
