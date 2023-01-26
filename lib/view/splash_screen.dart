@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
       photoSize: 200.0,
       // TODO: round image or remove background
       image: Image.asset("assets/images/splash_screen_logo.jpeg"),
+      loaderColor: Colors.white,
     );
   }
 }
