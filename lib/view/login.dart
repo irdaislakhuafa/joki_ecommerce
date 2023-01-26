@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 class Login extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _LoginState();
@@ -98,7 +100,13 @@ class _LoginState extends State<Login> {
                       MaterialStateProperty.all(Theme.of(context).primaryColor),
                 ),
                 onPressed: () {
-                  // Navigation
+                  // TODO: to home page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Home(),
+                    ),
+                  );
                 },
                 child: Container(
                   padding:
