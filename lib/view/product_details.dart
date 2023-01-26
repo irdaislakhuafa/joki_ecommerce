@@ -1,3 +1,4 @@
+import 'package:ecommerce/view/buy_now.dart';
 import 'package:ecommerce/view/home.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                       backgroundColor: MaterialStateProperty.all(
                           Theme.of(context).primaryColor),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BuyNow(),
+                        ),
+                      );
+                    },
                     child: Container(
                       padding: EdgeInsets.all(15),
                       child: Text("Beli Sekarang"),
