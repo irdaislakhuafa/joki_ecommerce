@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
         backgroundColor: Theme.of(context).primaryColor,
         photoSize: 120.0,
         image: Image.asset("assets/images/splash_screen_logo.png"),
-        loaderColor: Colors.white,
+        useLoader: false,
       ),
       onTap: () {
         Navigator.of(context)

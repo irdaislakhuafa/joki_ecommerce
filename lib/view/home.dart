@@ -7,6 +7,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // card products
+  static var imageNames = [
+    {
+      "image": "assets/images/product_1.png",
+      "desc": "Lorem Ipsum is simply dummy text",
+    },
+    {
+      "image": "assets/images/product_2.png",
+      "desc": "Lorem Ipsum is simply dummy text",
+    },
+    {
+      "image": "assets/images/product_3.png",
+      "desc": "Lorem Ipsum is simply dummy text",
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     List<String> categoryNames = [
@@ -68,19 +84,108 @@ class _HomeState extends State<Home> {
         ),
       ),
       Container(
-        margin: EdgeInsets.only(top: 5),
+        margin: EdgeInsets.only(top: 5, bottom: 20),
         child: Row(
           children: categories,
         ),
       )
+    ];
 
-      // TODO: card products
+    List<Widget> rowsProduct = [];
+
+    items.add(
+      Center(
+        child: Wrap(
+          spacing: 10,
+          runSpacing: 5,
+          children: List.generate(imageNames.length, (index) {
+            return Container(
+              width: 150,
+              child: Card(
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      Image.asset(imageNames[index]["image"]!),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        padding: EdgeInsets.only(top: 10),
+                        child: Text(imageNames[index]["desc"]!),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Icon(Icons.list),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Icon(Icons.add_shopping_cart),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }),
+        ),
+      ),
+    );
+
+    var footer = [
+      ElevatedButton(
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+        ),
+        onPressed: () {},
+        child: Icon(
+          Icons.home,
+          color: Colors.black,
+          size: 50,
+        ),
+      ),
+      ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+          elevation: MaterialStateProperty.all(0),
+        ),
+        onPressed: () {},
+        child: Icon(
+          Icons.shopping_cart,
+          color: Colors.black,
+          size: 50,
+        ),
+      ),
+      ElevatedButton(
+        clipBehavior: Clip.none,
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all(0),
+          backgroundColor: MaterialStateProperty.all(Colors.white),
+        ),
+        onPressed: () {},
+        child: Icon(
+          Icons.person,
+          color: Colors.black,
+          size: 50,
+        ),
+      ),
     ];
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: ListView(
         children: items,
+      ),
+      bottomNavigationBar: BottomAppBar(
+        // shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: footer,
+        ),
       ),
     );
   }
