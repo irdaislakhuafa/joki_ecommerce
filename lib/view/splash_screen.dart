@@ -1,3 +1,4 @@
+import 'package:ecommerce/view/login.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart' as sc;
 
@@ -16,6 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // TODO: round image or remove background
       image: Image.asset("assets/images/splash_screen_logo.jpeg"),
       loaderColor: Colors.white,
+      navigateAfterSeconds: Login(),
     );
   }
 }
