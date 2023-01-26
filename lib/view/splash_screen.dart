@@ -13,9 +13,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return sc.SplashScreen(
       seconds: 5,
       backgroundColor: Theme.of(context).primaryColor,
-      photoSize: 200.0,
+      photoSize: 120.0,
       // TODO: round image or remove background
-      image: Image.asset("assets/images/splash_screen_logo.jpeg"),
+      image: Image.asset("assets/images/splash_screen_logo.png"),
       loaderColor: Colors.white,
       navigateAfterSeconds: Login(),
     );

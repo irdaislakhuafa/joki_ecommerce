@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
             margin: EdgeInsets.only(top: 10, bottom: 10, left: 80, right: 80),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(900),
-              child: Image.asset("assets/images/splash_screen_logo.jpeg"),
+              child: Image.asset("assets/images/splash_screen_logo.png"),
             ),
           ),
 
